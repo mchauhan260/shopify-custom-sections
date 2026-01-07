@@ -1,0 +1,27 @@
+<div class="product-slider">
+  {% for product in section.settings.products %}
+    <div class="product-card">
+      <img src="{{ product.featured_image | image_url: width: 400 }}" loading="lazy">
+      <h3>{{ product.title }}</h3>
+      <p>{{ product.price | money }}</p>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Custom Product Slider",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "products",
+      "label": "Select products"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Product Slider"
+    }
+  ]
+}
+{% endschema %}
